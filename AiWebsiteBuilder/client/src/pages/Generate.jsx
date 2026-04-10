@@ -79,7 +79,7 @@ function Generate() {
               <ArrowLeft size={16} />
             </button>
             <h1 className="text-lg font-semibold">
-              Webbuil<span className="text-zinc-400">.ai</span>
+              SiteForge<span className="text-zinc-400">.ai</span>
             </h1>
           </div>
         </div>
@@ -98,7 +98,7 @@ function Generate() {
             </span>
           </h1>
           <p className="text-zinc-400 max-w-2xl mx-auto">
-            This process may take several minutes. Webbuild.ai focus on quality,
+            This process may take several minutes. SiteForge.ai focus on quality,
             not shortcuts
           </p>
         </Motion.div>
