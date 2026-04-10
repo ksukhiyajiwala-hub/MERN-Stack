@@ -93,7 +93,7 @@ function Dashboard() {
 
         {loading && (
           <div className="mt-24 text-center text-zinc-400 ">
-            Loading Your Websites...
+            Fetchin Your Websites...
           </div>
         )}
 
