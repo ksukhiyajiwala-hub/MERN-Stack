@@ -56,7 +56,7 @@ function Home() {
   }, [userData]);
 
   return (
-    <div className="relative min-h-screen bg-[#040404] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-transparent text-white overflow-hidden">
       <Motion.div
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -64,7 +64,7 @@ function Home() {
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/40 border-b border-white/10"
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-lg font-semibold">WebBuild.ai</div>
+          <div className="text-lg font-semibold">SiteForge AI</div>
           <div className="flex items-center gap-5">
             <div
               className="hidden md:inline text-sm text-zinc-400 hover:text-white cursor-pointer"
@@ -162,7 +162,7 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-7xl font-bold tracking-tight"
         >
-          Build Stunning Websites <br />
+          Build Professional Websites <br />
           <span className="bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             with AI
           </span>
@@ -173,8 +173,8 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           className="mt-8 mac-w-2xl mx-aut text-zinc-400 text-lg"
         >
-          Describe your idea and let AI generate a modern,responsive,
-          production-ready website
+          Turn your ideas into fast, responsive, and production-ready websites —
+          no coding required.
         </Motion.p>
 
         <button
@@ -183,7 +183,7 @@ function Home() {
             userData ? navigate("/dashboard") : setOpenLogin(true)
           }
         >
-          {userData ? "Go to dashboard" : "Get Started"}
+          {userData ? "Go to Dashboard" : "Get Started"}
         </button>
       </section>
 
@@ -210,7 +210,7 @@ function Home() {
 
       {userData && websites?.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 pb-32">
-          <h3 className="text-2xl font-semibold mb-6">Your Websites</h3>
+          <h3 className="text-2xl font-semibold mb-6">Your Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {websites.slice(0, 3).map((w) => (
               <Motion.div
@@ -238,8 +238,8 @@ function Home() {
           </div>
         </section>
       )}
-      <footer className="border-t border-white/10 py-10 text-center text-sm text-zinc-500">
-        &copy; {new Date().getFullYear()} WebBuild.ai
+      <footer className="border-t border-white/10 py-10 text-center text-sm text-white">
+        &copy; {new Date().getFullYear()} SiteForge AI. All rights reserved.
       </footer>
 
       {openLogin && (

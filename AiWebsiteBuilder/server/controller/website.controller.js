@@ -370,7 +370,6 @@ export const getBySlug = async (req, res) => {
   try {
     const website = await Website.findOne({
       slug: req.params.slug,
-      user: new mongoose.Types.ObjectId(req.user._id),
     });
     if (!website) {
       console.log("Website not found::");
@@ -379,6 +378,6 @@ export const getBySlug = async (req, res) => {
 
     return res.status(200).json(website);
   } catch (error) {
-    es.status(400).json({ message: `error get by slug::` });
+    return res.status(400).json({ message: `error get by slug::` });
   }
 };

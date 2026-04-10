@@ -60,7 +60,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="min-h-screen bg-transparent text-white">
       <div className="sticky top-0 z-40 backdrop-blur-xl bg-black/50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -118,10 +118,12 @@ function Dashboard() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
                   whileHover={{ y: -6 }}
-                  onClick={() => navigate(`/editor/${w._id}`)}
                   className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:bg-white/10 transition flex flex-col"
                 >
-                  <div className="relative h-40 bg-black cursor-pointer">
+                  <div
+                    className="relative h-40 bg-black cursor-pointer"
+                    onClick={() => navigate(`/editor/${w._id}`)}
+                  >
                     <iframe
                       srcDoc={w.latestCode}
                       className="absolute inset-0 w-[140%] h-[140%] scale-[0.72] origin-top-left pointer-events-none bg-white"
