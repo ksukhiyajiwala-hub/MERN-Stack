@@ -2,9 +2,6 @@ const extractJson = async (text) => {
   if (!text) {
     return;
   }
-  //   const cleanContent = text
-  //     .replace(/^```[a-z]*\n([\s\S]*?)\n```$/i, "$1")
-  //     .trim();
   const cleaned = text
     .replace(/```json/gi, "")
     .replace(/```/g, "")
