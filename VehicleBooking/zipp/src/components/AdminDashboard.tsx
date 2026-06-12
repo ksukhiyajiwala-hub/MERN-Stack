@@ -8,6 +8,10 @@ import TabButton from "./TabButton";
 import { AnimatePresence, motion } from "motion/react";
 import ContentList from "./ContentList";
 import AdminEarning from "./AdminEarning";
+import { signOut } from "next-auth/react";
+import { useDispatch } from "react-redux";
+import { setUserData } from "@/app/redux/userSlice";
+import { useRouter } from "next/navigation";
 type State = {
   totalApproved: number;
   totalPartner: number;
@@ -21,6 +25,8 @@ function AdminDashboard() {
   const [partnerReviews, setPartnerReviews] = useState<any>();
   const [pendingKyc, setPendingKyc] = useState<any>();
   const [vehicleReviews, setVehicleReviews] = useState<any>();
+  const dispach = useDispatch();
+  const router = useRouter();
   const handleGetDashBoardData = async () => {
     try {
       const { data } = await axios.get("/api/admin/dashboard");
@@ -41,15 +47,23 @@ function AdminDashboard() {
       console.log(error);
     }
   };
+
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
+    dispach(setUserData(null));
+    router.push("/");
+  };
+
   useEffect(() => {
     handleGetPendingKyc();
     handleGetDashBoardData();
   }, []);
+
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-20020">
       <div className="sticky top-0 bg-white/80 backdrop-blur-lg border-b z-40">
         <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center flex-1 gap-3">
             <Image
               src={"/logo.jpeg"}
               alt="logo"
@@ -59,9 +73,19 @@ function AdminDashboard() {
             />
           </div>
 
-          <div className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-black text-white">
-            <User size={14} />
-            Admin Dashboard
+          <div className="flex gap-3">
+            <div className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-black text-white">
+              <User size={14} />
+              Admin Dashboard
+            </div>
+
+            <div
+              className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-white text-red-500 border border-red-500 cursor-pointer"
+              onClick={handleLogout}
+            >
+              <User size={14} />
+              Log Out
+            </div>
           </div>
         </div>
       </div>
