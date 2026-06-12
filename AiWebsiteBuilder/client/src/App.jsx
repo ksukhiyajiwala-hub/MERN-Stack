@@ -9,7 +9,7 @@ import WebsiteEditor from "./pages/WebsiteEditor.jsx";
 import LiveSite from "./pages/LiveSite.jsx";
 import Pricing from "./pages/Pricing.jsx";
 
-export const serverUrl = "http://localhost:8000";
+export const serverUrl = "https://mern-stack-3oqz.onrender.com";
 function App() {
   userGetCurrentUser();
   const { userData } = useSelector((state) => state.user);
