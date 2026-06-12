@@ -70,6 +70,7 @@ function AuthModal({ open, onClose }: PropType) {
       redirect: false,
     });
     setLoading(false);
+    onClose();
     if (response?.error) {
       console.log(response.error);
       alert("Invalid email or password");
